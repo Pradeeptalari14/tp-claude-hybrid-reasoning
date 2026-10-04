@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: claude-reasoning-gateway
+  namespace: ai-workloads
+  labels:
+    app.kubernetes.io/name: claude-reasoning-gateway
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: claude-reasoning-gateway
+  template:
+    metadata:
+      labels:
+        app: claude-reasoning-gateway
+    spec:
+      containers:
+        - name: gateway-proxy
+          image: ghcr.io/pradeeptalari14/claude-reasoning-gateway:latest
+          ports:
+            - containerPort: 8080
+              name: http
+          env:
+            - name: DEFAULT_THINKING_BUDGET
+              value: "16384"
+            - name: REASONING_MODE
+              value: "extended_thinking"
+            - name: ANTHROPIC_MODEL
+              value: "claude-3-7-sonnet-20250219"
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "512Mi"
+            limits:
+              cpu: "2000m"
+              memory: "2Gi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: claude-reasoning-gateway-svc
+  namespace: ai-workloads
+spec:
+  selector:
+    app: claude-reasoning-gateway
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+      name: http

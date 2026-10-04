@@ -1,0 +1,25 @@
+name: Claude 3.7 CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Syntax Check Workloads
+        run: |
+          python3 -m py_compile claude_reasoner.py
+          python3 -m py_compile adaptive_complexity_router.py
+      - name: Run Validation Script
+        run: |
+          chmod +x scripts/validate.sh
+          ./scripts/validate.sh
