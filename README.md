@@ -1,3 +1,6 @@
+[![Ecosystem](https://img.shields.io/badge/Portfolio%20Ecosystem-341%20Studios-6366f1.svg)](https://pradeeptalari.me/projects/)
+[![Architecture DAG](https://img.shields.io/badge/Architecture-DAG%20%26%20Course-10b981.svg)](https://pradeeptalari.me/tools/repo-learning/)
+
 # 🧠 Claude 3.7 Sonnet: Hybrid Reasoning & Dynamic Thinking Studio
 
 [![Claude 3.7 CI](https://github.com/Pradeeptalari14/tp-claude-hybrid-reasoning/actions/workflows/claude-ci.yml/badge.svg)](https://github.com/Pradeeptalari14/tp-claude-hybrid-reasoning/actions)
@@ -201,3 +204,6 @@ tp-claude-hybrid-reasoning/
 
 - **License:** [MIT License](LICENSE)
 - **Attribution:** Maintained by **[Talari Pradeep](https://talaripradeep.info/)** · AI Infrastructure & Platform SRE Lead
+
+---
+*Synchronized with [Claude 3.7 Sonnet Hybrid Reasoning Studio Studio](https://pradeeptalari.me/tools/claude-hybrid-reasoning/) & [Repository Learning DAG](https://pradeeptalari.me/tools/repo-learning/) — [Talari Pradeep Portfolio](https://pradeeptalari.me)*
